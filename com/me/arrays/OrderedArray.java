@@ -16,7 +16,7 @@ public class OrderedArray extends UnorderedArray {
         for (i = 0; i < elementsCount; i++)
             if (arr[i]>value)
                 break;
-        //index shouldn't be higher than array length  
+        //index shouldn't be higher than array length
         if (i >= arr.length)
             return;
         //if array is full, decrease counter by 1

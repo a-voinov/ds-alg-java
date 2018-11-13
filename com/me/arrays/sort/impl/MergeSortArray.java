@@ -15,14 +15,15 @@ public class MergeSortArray extends UnorderedArray {
 
     private void merge(int left, int mid, int right){
         int i = left; int j = mid; int tempIndex = 0;
+        //temp contains sorted elements
         int[] temp = new int[arr.length];
         while (i < mid && j < right)
             temp[tempIndex++] = arr[i] <= arr[j] ? arr[i++] : arr[j++];
         //example of merge
         //[{33, 36}, {34, 35, 37}] src
         //[33, 34, 35] temp
-        //[33, 36, 34, 36, 37] res (src) step 1
-        //[33, 34, 35, 36, 37] res (src) step 2
+        //[33, 36, 34, 36, 37] res (src) step 1 : throw greater elements to the right of sorted partition
+        //[33, 34, 35, 36, 37] res (src) step 2 : copy sorted elements from start of partition
         System.arraycopy(arr, i, arr, left + tempIndex, mid - i); // step 1
         System.arraycopy(temp, 0, arr, left, tempIndex); // step 2
     }
