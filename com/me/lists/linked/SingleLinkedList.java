@@ -29,7 +29,7 @@ public class SingleLinkedList extends AbstractLinkedList {
 
     @Override
     public void addLast(int value){
-        Link lastLink = getLastLink();
+        Link lastLink = getLast();
         if (lastLink != null){
             lastLink.next = new Link();
             lastLink.next.data = value;
@@ -56,7 +56,8 @@ public class SingleLinkedList extends AbstractLinkedList {
         }
     }
 
-    private Link getLastLink(){
+    @Override
+    public Link getLast(){
         if (head == null) return null;
         if (head.next == null) return head;
         Link currentLink = head.next;

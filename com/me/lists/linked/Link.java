@@ -5,7 +5,7 @@ import com.me.lists.ILink;
 /**
  * Composite element of any LinkedList
  */
-class Link implements ILink {
+public class Link implements ILink {
     int data;
     Link next;
     Link prev;

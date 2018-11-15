@@ -2,18 +2,17 @@ package com.me.lists.linked;
 
 import com.me.lists.IIterator;
 import com.me.lists.ILink;
-import com.me.lists.IList;
 
 /**
- * Implementation of IIterator for Linked List
+ * Implementation of IIterator for Singly Linked List
  */
 public class Iterator implements IIterator {
 
-    private IList list;
-    private Link current;
-    private Link previous;
+    AbstractLinkedList list;
+    Link current;
+    Link previous;
 
-    Iterator(IList list) {
+    Iterator(AbstractLinkedList list) {
         this.list = list;
         reset();
     }
@@ -40,19 +39,26 @@ public class Iterator implements IIterator {
         return current.next == null;
     }
 
+    protected Link newLink;
+
     @Override
     public void insertAfter(int value) {
         if (list.isEmpty()){
             list.addFirst(value);
         } else {
             //create
-            Link newLink = new Link();
+            newLink = new Link();
             newLink.data = value;
             //link
             newLink.next = current.next;
+            if (current.next != null){
+                current.next.prev = newLink;
+            }
             newLink.prev = current;
             current.next = newLink;
         }
+        //inc size
+        list.size++;
     }
 
     @Override
@@ -61,7 +67,7 @@ public class Iterator implements IIterator {
             list.addFirst(value);
         } else {
             //create
-            Link newLink = new Link();
+            newLink = new Link();
             newLink.data = value;
             //link
             newLink.next = current;
@@ -70,8 +76,14 @@ public class Iterator implements IIterator {
                 newLink.prev = previous;
                 previous.next = newLink;
             }
-            previous = current.prev;
+            previous = newLink;
+            //move head
+            if (newLink.prev == null) {
+                list.head = newLink;
+            }
         }
+        //inc size
+        list.size++;
     }
 
     @Override
@@ -84,6 +96,12 @@ public class Iterator implements IIterator {
             previous.next = current.next;
             if (atEnd()) reset(); else
                 current = current.next;
+        }
+        //dec size
+        list.size--;
+        //move head
+        if (current.prev == null) {
+            list.head = current;
         }
     }
 }

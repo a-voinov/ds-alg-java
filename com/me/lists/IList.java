@@ -1,5 +1,7 @@
 package com.me.lists;
 
+import com.me.lists.linked.Link;
+
 /**
  * Interface presents object with common list methods
  */
@@ -13,10 +15,6 @@ public interface IList {
      */
     int get(int index);
     /**
-     * Get first element of list
-     */
-    ILink getFirst();
-    /**
      * Return length of elements of linked list
      */
     int length();
@@ -24,6 +22,10 @@ public interface IList {
      * Insert link after last element
      */
     void addLast(int value);
+    /**
+     * Get last element in list
+     */
+    ILink getLast();
     /**
      * Remove last element
      */

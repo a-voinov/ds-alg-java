@@ -8,8 +8,9 @@ import com.me.lists.IList;
  */
 public abstract class AbstractLinkedList implements IList {
 
-    protected Link head;
-    protected int size = 0;
+    //package-private access for iterator//
+    Link head;
+    int size = 0;
 
     @Override
     public int indexOf(int val) {
@@ -49,7 +50,6 @@ public abstract class AbstractLinkedList implements IList {
         head = (Link)link;
     }
 
-    @Override
     public ILink getFirst() {
         return head;
     }
@@ -94,6 +94,10 @@ public abstract class AbstractLinkedList implements IList {
             current = next;
         }
         head = prev;
+    }
+
+    public void setDisplaySeparator(String separator){
+        this.displayElementsSeparator = separator;
     }
 
 }

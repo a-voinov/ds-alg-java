@@ -5,10 +5,24 @@ package com.me.lists.linked;
  */
 public class DoubleLinkedList extends AbstractLinkedList {
 
-    private Link tail;
+    Link tail;
 
     public DoubleLinkedList() {
         displayElementsSeparator = " < - > ";
+    }
+
+    @Override
+    public Link getLast(){
+        return tail;
+    }
+
+    public ReversedIteratorDouble createReversedIterator(){
+        return new ReversedIteratorDouble(this);
+    }
+
+    @Override
+    public IteratorDouble createIterator() {
+        return new IteratorDouble(this);
     }
 
     @Override
