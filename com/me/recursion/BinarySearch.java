@@ -1,6 +1,6 @@
 package com.me.recursion;
 
-import com.me.arrays.OrderedArray;
+import com.me.array.OrderedArray;
 
 public class BinarySearch extends OrderedArray {
 

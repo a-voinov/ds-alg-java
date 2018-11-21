@@ -1,7 +1,6 @@
 package com.me.queue.impl;
 
-import com.me.lists.linked.DoubleLinkedList;
-import com.me.lists.linked.SingleLinkedList;
+import com.me.list.linked.DoubleLinkedList;
 import com.me.queue.IQueue;
 
 import java.util.NoSuchElementException;

@@ -19,7 +19,7 @@ public interface IHashTable {
      */
     Employee remove(String key);
     /**
-     * Show Hash Table in System.out from front to rear
+     * Show Hash Table in System.out
      */
     void display();
 }

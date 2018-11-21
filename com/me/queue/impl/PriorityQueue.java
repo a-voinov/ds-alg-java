@@ -1,7 +1,7 @@
 package com.me.queue.impl;
 
-import com.me.lists.linked.DoubleLinkedList;
-import com.me.lists.linked.ReversedIteratorDouble;
+import com.me.list.linked.DoubleLinkedList;
+import com.me.list.linked.ReversedIteratorDouble;
 import com.me.queue.IQueue;
 
 import java.util.NoSuchElementException;

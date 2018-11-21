@@ -1,6 +1,6 @@
 package com.me.stack.impl;
 
-import com.me.lists.linked.SingleLinkedList;
+import com.me.list.linked.SingleLinkedList;
 import com.me.stack.IStack;
 
 /**
