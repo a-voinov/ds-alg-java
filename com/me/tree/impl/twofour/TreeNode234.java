@@ -22,6 +22,38 @@ class TreeNode234 implements ITreeNode {
         this.data = new Integer[3];
     }
 
+    int maxElementPosition(){
+        if (data[1] == null){
+            return 0;
+        }
+        if (data[2] == null){
+            return 1;
+        }
+        return 2;
+    }
+
+    int remove(int elementNum){
+        int el = data[elementNum];
+        data[elementNum] = null;
+        return el;
+    }
+
+    int removeAndShift(int elementNum){
+        int el = data[elementNum];
+        data[elementNum] = null;
+        //shift
+        if (elementNum == 1){
+            data[1] = data[2];
+            data[2] = null;
+        } else
+        if (elementNum == 0){
+            data[0] = data[1];
+            data[1] = data[2];
+            data[2] = null;
+        }
+        return el;
+    }
+
     @Override
     public String toString() {
         return "TreeNode234{" +

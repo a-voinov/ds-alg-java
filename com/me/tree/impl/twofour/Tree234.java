@@ -6,11 +6,11 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import java.util.Arrays;
 
 /**
- * Tree 2-3-4 implementation
+ * Tree 2-3-4 implementation without deletion
  */
 public class Tree234 implements ITree {
 
-    private TreeNode234 root;
+    protected TreeNode234 root;
 
     private void divideNonRootNode(TreeNode234 node, int value){
         TreeNode234 newRightNode = new TreeNode234();
@@ -121,7 +121,7 @@ public class Tree234 implements ITree {
         insert(newRoot, value, false);
     }
 
-    private void insert(TreeNode234 node, int value, boolean divideFirst){
+    protected void insert(TreeNode234 node, int value, boolean divideFirst){
 
         //1. division
         if (divideFirst)
@@ -188,7 +188,7 @@ public class Tree234 implements ITree {
         }
     }
 
-    private void traverse(TreeNode234 node){
+    protected void traverse(TreeNode234 node){
         if (node == null) return;
         visit(node);
         if (node.node1 != null)
@@ -201,7 +201,7 @@ public class Tree234 implements ITree {
             traverse(node.node4);
     }
 
-    private void visit(TreeNode234 node){
+    protected void visit(TreeNode234 node){
         if (node == null) return;
         if (node.data == null) System.out.print("[empty] ");  else
         System.out.print(Arrays.toString(node.data) + " ");
@@ -213,7 +213,7 @@ public class Tree234 implements ITree {
         System.out.println();
     }
 
-    private TreeNode234 get(TreeNode234 node, int value){
+    protected TreeNode234 get(TreeNode234 node, int value){
         for (int i = 0; i < 3; i++) {
             if (node.data[i] == null) break;
             if (node.data[i] == value) return node;
@@ -238,42 +238,49 @@ public class Tree234 implements ITree {
         return get(root, value);
     }
 
-    private int min(TreeNode234 node){
+    protected TreeNode234 minNode(TreeNode234 node){
         if (node.node1 == null) {
-            return node.data[0];
-        } else return min(node.node1);
+            return node;
+        } else return minNode(node.node1 );
+    }
+
+    protected TreeNode234 minNode(){
+        return minNode(root);
     }
 
     @Override
     public int min() {
-        return min(root);
+        return minNode().data[0];
     }
 
-    private int max(TreeNode234 node){
-        TreeNode234 curNode = node.node1;
+    protected TreeNode234 maxNode(TreeNode234 node){
+        TreeNode234 curNode = node;
+        if (node.node1 != null) curNode = node.node2;
         if (node.node2 != null) curNode = node.node2;
         if (node.node3 != null) curNode = node.node3;
         if (node.node4 != null) curNode = node.node4;
 
-        if (curNode.node1 == null && curNode.node2 == null && curNode.node3 == null && curNode.node4 == null) {
-            int max;
-            if (curNode.data[2] != null)
-                max = curNode.data[2]; else
-            if (curNode.data[1] != null)
-                max = curNode.data[1]; else
-            max = curNode.data[0];
-                return max;
-        } else return max(curNode);
+        if (curNode.node1 == null && curNode.node2 == null && curNode.node3 == null && curNode.node4 == null)
+            return curNode;
+        else return maxNode(curNode);
+    }
+
+    /**
+     * retrieve node with maximum tree element
+     */
+    protected TreeNode234 maxNode(){
+        return maxNode(root);
     }
 
     @Override
     public int max() {
-        return max(root);
+        TreeNode234 maxNode = maxNode();
+        int maxElementPos = maxNode.maxElementPosition();
+        return maxNode.data[maxElementPos];
     }
 
     @Override
     public void delete(int val) {
-        //TODO
         throw new NotImplementedException();
     }
 
