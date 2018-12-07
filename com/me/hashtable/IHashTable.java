@@ -1,6 +1,6 @@
 package com.me.hashtable;
 
-import com.me.domain.Employee;
+import com.me.hashtable.domain.Employee;
 
 /**
  * Common hash table operations

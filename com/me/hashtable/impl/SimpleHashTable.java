@@ -1,6 +1,6 @@
 package com.me.hashtable.impl;
 
-import com.me.domain.Employee;
+import com.me.hashtable.domain.Employee;
 import com.me.hashtable.IHashTable;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 

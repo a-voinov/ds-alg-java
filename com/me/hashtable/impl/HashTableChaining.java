@@ -1,7 +1,7 @@
 package com.me.hashtable.impl;
 
-import com.me.domain.Employee;
-import com.me.domain.StoredEmployee;
+import com.me.hashtable.domain.Employee;
+import com.me.hashtable.domain.StoredEmployee;
 import com.me.hashtable.IHashTable;
 
 import java.util.LinkedList;

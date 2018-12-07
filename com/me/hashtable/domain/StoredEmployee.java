@@ -1,4 +1,4 @@
-package com.me.domain;
+package com.me.hashtable.domain;
 
 /**
  * Wrapper on class Employee for hash table implementations.

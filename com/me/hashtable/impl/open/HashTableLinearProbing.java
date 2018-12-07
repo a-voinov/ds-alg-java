@@ -1,6 +1,6 @@
 package com.me.hashtable.impl.open;
 
-import com.me.domain.Employee;
+import com.me.hashtable.domain.Employee;
 import com.me.hashtable.impl.HashTableOpenAddressing;
 
 /**

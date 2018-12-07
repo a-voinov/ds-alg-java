@@ -11,18 +11,8 @@ public class BinarySearch extends OrderedArray {
      * binary search in ordered array
      */
     public int search(int value) {
-        int left = 0;
-        int right = elementsCount - 1;
-        while(true){
-            int center = (left + right) / 2;
-            if (arr[center] == value) return center;
-            if (left > right) return -1;
-            if (arr[center] > value){
-                right = center - 1;
-            } else {
-                left = center + 1;
-            }
-        }
+        //TODO
+        return -1;
     }
 
     public static void main(String[] args){

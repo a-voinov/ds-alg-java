@@ -1,4 +1,4 @@
-package com.me.domain;
+package com.me.hashtable.domain;
 
 /**
  * Simple domain object
