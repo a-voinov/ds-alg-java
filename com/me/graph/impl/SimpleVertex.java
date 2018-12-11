@@ -13,5 +13,15 @@ public class SimpleVertex implements IVertex {
         this.label = label;
     }
 
+    public boolean isVisited() {
+        return isVisited;
+    }
 
+    public char getLabel() {
+        return label;
+    }
+
+    public void setVisited(boolean visited) {
+        isVisited = visited;
+    }
 }

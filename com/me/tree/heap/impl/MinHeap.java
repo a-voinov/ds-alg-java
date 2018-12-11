@@ -5,7 +5,7 @@ package com.me.tree.heap.impl;
  */
 public class MinHeap extends MaxHeap {
 
-    MinHeap(int capacity) {
+    public MinHeap(int capacity) {
         super(capacity);
     }
 
